@@ -26,7 +26,7 @@ setTimeout(() => {
     // console.log(booksDe);
     // console.log(booksEn);
     books = [...booksDe.results, ...booksEn.results, ...booksFr.results];
-    console.log("allBooks", books);
+    //console.log("allBooks", books);
     appElem.innerHTML = ` <div class="container">
   <ul>
       ${books
@@ -36,7 +36,7 @@ setTimeout(() => {
             return `<li class="bookList">
             <span><a target="_blank" href="${book.formats["application/pdf"]}"><img style="width: 10rem; height: 15rem" src="${book.formats["image/jpeg"]}" alt="Book's image"></a></span>
             <span  class="items">${book.title}</span>
-            <span class="items"><strong> ${book.authors[0]["name"]}</strong></span>
+            <span  ><strong> ${book.authors[0]["name"]}</strong></span>
             </li>`;
           }
         })
@@ -55,8 +55,8 @@ filter.addEventListener("keyup", filterBooks);
 function filterBooks(e) {
   const filterValue = e.target.value.toLowerCase();
   const listItems = document.querySelectorAll(".items");
+  console.log("said", listItems);
 
-  // console.log("said", listItems);
   listItems.forEach(function (listItem) {
     const text = listItem.textContent.toLowerCase();
     // console.log(text);
@@ -64,7 +64,7 @@ function filterBooks(e) {
       //not find
       listItem.parentElement.setAttribute("style", "display:none !important");
     } else {
-      listItem.parentElement.setAttribute("style", "display:block");
+      listItem.parentElement.setAttribute("style", "display:flex");
     }
   });
   e.preventDefault();
@@ -72,17 +72,17 @@ function filterBooks(e) {
 // Suchen nach ein Buch
 // filtern wir das Buch aus Books aus der
 // wenn es zutritt dann drücken wir es in appElem.innerHTML aus
-const searchBook = document.querySelector("#searchBook");
-searchBook.addEventListener("click", () => {
-  return books.map((book) => {
-    // console.log(book.authors);
-    // console.log(filter.value);
-    let author = book.authors.length > 0 ? book.authors[0].name : "no author";
-    if (book.title.includes(filter.value) || author.includes(filter.value)) {
-      // console.log(book.name);
-      return book;
-    } else {
-      console.log("no name");
-    }
-  });
-});
+// const searchBook = document.querySelector("#searchBook");
+// searchBook.addEventListener("click", () => {
+//   return books.map((book) => {
+//     // console.log(book.authors);
+//     // console.log(filter.value);
+//     let author = book.authors.length > 0 ? book.authors[0].name : "no author";
+//     if (book.title.includes(filter.value) || author.includes(filter.value)) {
+//       // console.log(book.name);
+//       return book;
+//     } else {
+//       console.log("no name");
+//     }
+//   });
+// });
