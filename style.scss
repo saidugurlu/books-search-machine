@@ -12,7 +12,8 @@
 }
 body {
   font-size: 1.6rem;
-  background-color: rgb(202, 239, 234);
+  background-color: rgba(202, 239, 234, 0.174);
+
   color: rgb(19, 3, 3);
   font-family: monospace;
 
@@ -29,6 +30,7 @@ body {
     color: rgb(19, 3, 3);
     padding: 4rem;
     list-style-type: none;
+    background-color: rgba(202, 239, 234, 0.242);
     display: flex;
     gap: 2rem;
     justify-content: center;
@@ -54,6 +56,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 80%;
+    background-color: rgba(202, 239, 234, 0.242);
     height: 10rem;
     font-family: times, "Times New Roman";
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,

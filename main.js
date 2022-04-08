@@ -57,7 +57,6 @@ function filterBooks(e) {
 
   booksItem.forEach(function (listItem) {
     const text = listItem.textContent.toLowerCase();
-    console.log("Robert", text);
     if (text.indexOf(filterValue) === -1) {
       //not find
       listItem.setAttribute("style", "display:none !important");
