@@ -33,10 +33,10 @@ setTimeout(() => {
       ${books
         .map((book) => {
           if (book.authors.length !== 0) {
-            return `<li class="bookList">
+            return `<li class="books">
             <span><a target="_blank" href="${book.formats["application/pdf"]}"><img style="width: 10rem; height: 15rem" src="${book.formats["image/jpeg"]}" alt="Book's image"></a></span>
-            <span  class="items">${book.title}</span>
-            <span class="items" ><strong> ${book.authors[0]["name"]}</strong></span>
+            <span>${book.title}</span>
+            <span><strong>${book.authors[0]["name"]}</strong></span>
             </li>`;
           }
         })
@@ -46,23 +46,23 @@ setTimeout(() => {
   </div>
 `;
   })();
-}, 1000);
+}, 2000);
 
 // Filter items-----------------------------------------------------------------------
 
 filter.addEventListener("keyup", filterBooks);
 function filterBooks(e) {
   const filterValue = e.target.value.toLowerCase();
-  const listItems = document.querySelectorAll(".items");
+  const booksItem = document.querySelectorAll(".books");
 
-  listItems.forEach(function (listItem) {
+  booksItem.forEach(function (listItem) {
     const text = listItem.textContent.toLowerCase();
-    // console.log(text);
+    console.log("Robert", text);
     if (text.indexOf(filterValue) === -1) {
       //not find
-      listItem.parentElement.setAttribute("style", "display:none !important");
+      listItem.setAttribute("style", "display:none !important");
     } else {
-      listItem.parentElement.setAttribute("style", "display:flex");
+      listItem.setAttribute("style", "display:flex");
     }
   });
   e.preventDefault();
